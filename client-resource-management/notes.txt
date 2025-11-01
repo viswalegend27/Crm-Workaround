@@ -1,0 +1,5 @@
+1. python -m venv crm - created an virtual environment
+2. crm\Scripts\activate - activated my virtual environment
+3. created requirements.txt and pip install -r requirements.txt
+4. django-admin startproject my_crm created my django project
+5. I go inside my_crm application to create my django app

@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Employee
 
 class SignUpForm(UserCreationForm):
     name = forms.CharField(
@@ -36,3 +37,12 @@ class SignUpForm(UserCreationForm):
             'class': 'form-control',
             'placeholder': 'Confirm Password',
         })
+
+class AddRecordForm(forms.ModelForm):
+    name = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"First Name", "class":"form-control"}),label="Your name")
+    position = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Your Position", "class":"form-control"}),label="Your position")
+    salary = forms.IntegerField(required=True,widget=forms.NumberInput(attrs={"placeholder": "Your Salary","class": "form-control"}),label="Salary")
+
+    class Meta:
+        model = Employee
+        fields = ['name', 'position', 'salary']

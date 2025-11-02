@@ -43,3 +43,11 @@ def register_user(request):
         form = SignUpForm()
         return render(request, 'register.html',{'form':form})
     return render(request, 'register.html',{'form':form})
+
+def employee_record(request, pk):
+    if request.user.is_authenticated:
+        emp_record = Employee.objects.get(id=pk)
+        return render(request, 'record.html',{'emp_record':emp_record})
+    else:
+        messages.success(request, "You must be logged in!")
+        return redirect('home')

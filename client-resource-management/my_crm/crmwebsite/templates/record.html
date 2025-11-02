@@ -30,8 +30,9 @@
     </tbody>
   </table>
 
-  <div class="text-center">
-    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Employee List</a>
+  <div class="text-center mt-3">
+    <a href="{% url 'home' %}" class="btn btn-secondary me-2">Back to Employee List</a>
+    <a href="{% url 'delete_record' emp_record.id %}" class="btn btn-danger">Delete Record</a>
   </div>
 </div>
 {% endblock %}

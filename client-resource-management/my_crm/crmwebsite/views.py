@@ -51,3 +51,13 @@ def employee_record(request, pk):
     else:
         messages.success(request, "You must be logged in!")
         return redirect('home')
+    
+def delete_record(request, pk):
+    if request.user.is_authenticated:
+        deleted = Employee.objects.get(id=pk)
+        deleted.delete()
+        messages.success(request, "Record deleted!")
+        return redirect('home')
+    else:
+        messages.success(request, "Must be logged in")
+        return redirect('home')
